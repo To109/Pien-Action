@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class MainManager : MonoBehaviour
 {
@@ -13,6 +15,7 @@ public class MainManager : MonoBehaviour
     private GameObject _gameClearUI;
 
     private GameObject _player;　// プレイヤーオブジェクトの参照
+    private bool _bShowUI;  // ゲームオーバーとクリアの判定の参照
 
     // オブジェクト生成時に1回呼ばれる
     private void Awake()
@@ -33,6 +36,7 @@ public class MainManager : MonoBehaviour
     {
         // シーン内からPlayerを探して参照を保持
         _player = FindAnyObjectByType<Player>().gameObject;
+        _bShowUI = false;
     }
 
     void Update()
@@ -52,11 +56,25 @@ public class MainManager : MonoBehaviour
 
         // プレイヤーが存在していない場合はゲームオーバーUIを表示
         _gameOverUI.SetActive(true);
+        _bShowUI = true;
     }
 
     // 外部から呼び出してゲームクリアUIを表示する関数
     public void ShowGameClearUI()
     {
         _gameClearUI.SetActive(true);
+        _bShowUI = true;
+    }
+
+    // 押されたボタンの情報を取得
+    public void OnRestart(InputAction.CallbackContext context)
+    {
+        // ゲームオーバーやクリア出なければ何もしない
+        if (!_bShowUI || !context.performed)
+        {
+            return;
+        }
+        // 現在のシーンに再読み込みをする
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
