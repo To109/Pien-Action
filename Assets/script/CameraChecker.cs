@@ -21,9 +21,9 @@ public class CameraChecker : MonoBehaviour
         Vector3 viewportPos = mainCamera.WorldToViewportPoint(transform.position);
 
         // オブジェクトが画面の左端より外（x < 0）に出たら削除
-        if (viewportPos.x < 0)
+        if (viewportPos.x < 0 || viewportPos.y < 0)
         {
-            Destroy(gameObject); // 自身のゲームオブジェクトを削除
+            Destroy(gameObject); //　ゲームオブジェクトを削除
         }
     }
 }
