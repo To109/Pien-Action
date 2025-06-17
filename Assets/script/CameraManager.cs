@@ -63,6 +63,12 @@ public class CameraManager : MonoBehaviour
     // プレイヤーのX座標にカメラを追従させる処理（X方向のみ）
     private void _FollowPlayer()
     {
+        // プレイヤーがいないなら何もしない
+        if (_player == null)
+        {
+            return;
+        }
+
         float x = _player.transform.position.x;
         // カメラのX位置が初期位置より左に行かないよう制限
         x = Mathf.Clamp(x, _initPos.x, Mathf.Infinity);
