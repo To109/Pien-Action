@@ -21,7 +21,7 @@ public class EnemySpawner : MonoBehaviour
     void Update()
     {
         _SpawnEnemy(); // “G¶¬ˆ—‚ğŒÄ‚Ño‚µ
-    }
+    }//comment
 
     // “G‚ğ¶¬‚·‚éˆ—
     private void _SpawnEnemy()
