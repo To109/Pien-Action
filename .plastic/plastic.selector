@@ -1,0 +1,4 @@
+repository "(仮)Game project/(仮)Game project@15669564125885@cloud"
+  path "/"
+    br "/main"
+    co "/main"
