@@ -36,7 +36,26 @@ public class MainManager : MonoBehaviour
     {
         // シーン内からPlayerを探して参照を保持
         _player = FindAnyObjectByType<Player>().gameObject;
-        _bShowUI = false;
+        _bShowUI = false; // UIはまだ表示していない
+        FindObjectOfType<Fade>().FadeStart(_MainStart); // フェード演出が完了したらゲーム開始処理を実行
+        _player.GetComponent<Player>().enabled = false; // ゲーム開始前はプレイヤー操作を無効化
+        // 敵のスポーンも無効化
+        foreach (EnemySpawner enemySpawner in FindObjectsOfType<EnemySpawner>())
+        {
+            enemySpawner.enabled = false;
+        }
+    }
+
+    // フェード終了後に呼び出されるゲーム開始処理
+    private void _MainStart()
+    {
+        // プレイヤーの表示を有効にし、操作可能にする
+        _player.GetComponent<Renderer>().enabled = true;
+        // 敵のスポーンを有効化
+        foreach (EnemySpawner enemySpawner in FindObjectsOfType<EnemySpawner>())
+        {
+            enemySpawner.enabled = true;
+        }
     }
 
     void Update()
