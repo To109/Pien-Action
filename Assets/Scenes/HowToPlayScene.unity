@@ -2189,7 +2189,7 @@ GameObject:
   - component: {fileID: 727108199}
   - component: {fileID: 727108198}
   m_Layer: 0
-  m_Name: HowToUIManager
+  m_Name: HowToPlayUIManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
