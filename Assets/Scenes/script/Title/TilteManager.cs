@@ -20,7 +20,7 @@ public class TilteManager : MonoBehaviour
     {
         if (!context.performed)
         {
-            SceneManager.LoadScene("PlayScenes");
+            SceneManager.LoadScene("PlayScene");
         }
     }
 }
