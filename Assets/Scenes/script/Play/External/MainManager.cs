@@ -35,7 +35,7 @@ public class MainManager : MonoBehaviour
     void Start()
     {
         // シーン内からPlayerを探して参照を保持
-        _player = FindAnyObjectByType<Player>().gameObject;
+        _player = FindObjectOfType<Player>().gameObject;
         _bShowUI = false; // UIはまだ表示していない
         FindObjectOfType<Fade>().FadeStart(_MainStart); // フェード演出が完了したらゲーム開始処理を実行
         _player.GetComponent<Player>().enabled = false; // ゲーム開始前はプレイヤー操作を無効化
