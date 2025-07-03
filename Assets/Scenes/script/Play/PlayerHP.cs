@@ -11,7 +11,6 @@ public class PlayerHP : MonoBehaviour
     [SerializeField, Header("HPアイコン")]
     private GameObject _playerIcon; // HPアイコンの元となるゲームオブジェクト（プレハブ）を格納する変数
 
-    // privateな変数は、このクラスの中からしかアクセスできない
     private Player _player;     
     private int _beforeHP;      // 前のフレームのHPを保存しておくための変数。HPに変化があったかを確認するために使う
 
@@ -39,7 +38,7 @@ public class PlayerHP : MonoBehaviour
 
             // 生成したHPアイコンの親要素を、このスクリプトがアタッチされているオブジェクトに設定
             // これにより、UIの階層が整理され、アイコンがCanvas内の適切な場所に配置される
-            _playerHPObj.transform.parent = transform;
+            _playerHPObj.transform.SetParent(transform, false);
         }
     }
 
@@ -67,7 +66,7 @@ public class PlayerHP : MonoBehaviour
         {
             // アイコンを表示するかどうかを決める
             // i（アイコンの番号）がプレイヤーの現在のHPより小さい場合だけ、アイコンをアクティブ（表示状態）にする
-            // 例：HPが3の場合、iが0, 1, 2のアイコンは表示され、iが3以上のアイコンは非表示になります
+            // 例：HPが3の場合、iが0, 1, 2のアイコンは表示され、iが3以上のアイコンは非表示になる
             icons[i].gameObject.SetActive(i < _player.GetHP());
         }
 
