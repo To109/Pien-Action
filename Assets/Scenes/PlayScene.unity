@@ -10198,13 +10198,13 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1243724690}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 113, y: -979}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 50, y: 49.99997}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &658270423
@@ -10227,7 +10227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11f3ac1299aee104b9cb7cd6474a66c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerIcon: {fileID: 5007733433988448825, guid: a98170ef159c72046a31eef24057f0ae, type: 3}
+  _playerIcon: {fileID: 4302634526604073638, guid: 148163673317b6346bf4b013f1c9c951, type: 3}
 --- !u!114 &658270425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10246,9 +10246,9 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 0
-  m_Spacing: 1
-  m_ChildForceExpandWidth: 1
-  m_ChildForceExpandHeight: 1
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
