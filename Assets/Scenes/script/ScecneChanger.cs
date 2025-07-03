@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class EasyScene : MonoBehaviour
+public class SceneChanger : MonoBehaviour
 {
     void Start()
     {
@@ -13,8 +13,8 @@ public class EasyScene : MonoBehaviour
         
     }
 
-    public void OnClickToPlay()
+    public void ChangeScene(string sceneName)
     {
-        SceneManager.LoadScene("PlayScene");
+        SceneManager.LoadScene(sceneName);
     }
 }
