@@ -28,7 +28,7 @@ public class EndingScreenUIManager : MonoBehaviour
         // スキップボタンが押されたらOnSkipButtonClickedメソッドを呼ぶ
         endingSkipButton.onClick.AddListener(OnSkipButtonClicked);
 
-        // デバッグ用に、Aエンドを開始してみる
+        // デバッグ用!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!に、Aエンドを開始してみる
         // 修正前: StartEnding(EndingType.A, true);
         Setup(EndingType.A, true); // 修正後: メソッド名を「Setup」に変更
     }
