@@ -81,3 +81,7 @@ crashlytics-build.properties
 # Ignore tmp
 [Aa]ssets/[Tt]ext[Mm]esh [Pp]ro/
 [Aa]ssets/[Tt]ext[Mm]esh [Pp]ro.meta
+
+# Ignore specific large Music
+[Aa]ssets/[Ss]cenes/[Rr]esource/[Mm]usic/BGM/
+[Aa]ssets/[Ss]cenes/[Rr]esource/[Mm]usic/SE/
