@@ -28,11 +28,12 @@ public class EndingScreenUIManager : MonoBehaviour
         // スキップボタンが押されたらOnSkipButtonClickedメソッドを呼ぶ
         endingSkipButton.onClick.AddListener(OnSkipButtonClicked);
 
-        // デバッグ用に、Aエンドを開始してみる（本来はEndingSceneControllerから呼ばれる）
-        // StartEnding(EndingType.A, true); 
+        // デバッグ用に、Aエンドを開始してみる
+        // 修正前: StartEnding(EndingType.A, true);
+        Setup(EndingType.A, true); // 修正後: メソッド名を「Setup」に変更
     }
 
-    // EndingSceneControllerから呼び出されるエントリーポイント
+    // SceneControllerから呼び出されるエントリーポイント
     public void Setup(EndingType type, bool rankedIn)
     {
         this.isRankedIn = rankedIn; // 次のシーン遷移のために保持
@@ -101,11 +102,12 @@ public class EndingScreenUIManager : MonoBehaviour
         // 保持しておいたランクイン判定結果に応じて次のシーンへ
         if (isRankedIn)
         {
-            EndingSceneController.Instance.LoadRankingRegisterScene();
+            // ランキング登録と表示は同じシーンで行う設計なので、同じメソッドを呼ぶ
+            SceneController.Instance.LoadRankingScene();
         }
         else
         {
-            EndingSceneController.Instance.LoadRankingDisplayScene();
+            SceneController.Instance.LoadRankingScene();
         }
     }
 }

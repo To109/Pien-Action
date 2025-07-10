@@ -153,8 +153,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -7.276e-12, y: -352}
-  m_SizeDelta: {x: 1522.06, y: 250.39}
+  m_AnchoredPosition: {x: -46.27, y: -352}
+  m_SizeDelta: {x: 1429.51, y: 250.39}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &211033979
 MonoBehaviour:
@@ -176,12 +176,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "This area is where the text of your story will be printed................(Plese
-    take Japanese Font & Text Asset) \nFont Data  / Text Asset is Large File(100MB
-    over). Don't commit it."
+  m_text: This area is where the text of your story will be printed
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 83564b4819a21f44287b0c806a079385, type: 2}
+  m_sharedMaterial: {fileID: -7086013789674489051, guid: 83564b4819a21f44287b0c806a079385, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1022,7 +1020,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1475186169}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1551332000}
+        m_TargetAssemblyTypeName: SceneController, Assembly-CSharp
+        m_MethodName: LoadRankingScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1475186169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1181,7 +1191,7 @@ GameObject:
   - component: {fileID: 1551331999}
   - component: {fileID: 1551332000}
   m_Layer: 0
-  m_Name: EndingSceneController
+  m_Name: SceneController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1211,7 +1221,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1551331998}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 945eaeb7c6a295f4b8dd436b8aa7122c, type: 3}
+  m_Script: {fileID: 11500000, guid: 117f50498dde6924db4277c2596a27f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1591682802
