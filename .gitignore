@@ -76,7 +76,12 @@ crashlytics-build.properties
  
 # Ignore specific large font asset
 [Aa]ssets/[Ff]onts/
+[Aa]ssets/[Ss]cenes/[Rr]esource/[Ff]onts/
 
 # Ignore tmp
 [Aa]ssets/[Tt]ext[Mm]esh [Pp]ro/
 [Aa]ssets/[Tt]ext[Mm]esh [Pp]ro.meta
+
+# Ignore specific large Music
+[Aa]ssets/[Ss]cenes/[Rr]esource/[Mm]usic/BGM/
+[Aa]ssets/[Ss]cenes/[Rr]esource/[Mm]usic/SE/
