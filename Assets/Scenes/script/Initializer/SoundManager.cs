@@ -9,8 +9,12 @@ public enum BgmType
 {
     None,
     Title,
-    Play,
-    GameClear,
+    END_A,
+    END_B,
+    END_C,
+    Easy_play,
+    Normal_play,
+    Hard_play,
     GameOver
 }
 
@@ -20,7 +24,6 @@ public enum SeType
     Jump,
     Attack,
     PlayerDamage,
-    EnemyDamage,
     ItemGet,
     LevelUp,
     UIClick
