@@ -116,10 +116,10 @@ TextureImporter:
       name: Puls_0
       rect:
         serializedVersion: 2
-        x: 26
-        y: 5
-        width: 691
-        height: 734
+        x: 167
+        y: 57
+        width: 727
+        height: 906
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
