@@ -17,4 +17,9 @@ public class SceneChanger : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
     }
+
+    public void PlayClickSound()
+    {
+        SoundManager.Instance.PlaySe(SeType.UIClick);
+    }
 }
