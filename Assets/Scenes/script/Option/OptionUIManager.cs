@@ -39,6 +39,7 @@ public class OptionUIManager : MonoBehaviour // ˆÈ‘O‚ÌİŒv’Ê‚èUIManager‚ğŒp³‚µ‚
     // BGM‰¹—Ê‚ğã‚°‚é
     private void OnBgmPlus()
     {
+        SoundManager.Instance.PlaySe(SeType.UIClick);
         int currentLevel = SoundManager.Instance.BgmVolumeLevel;
         SoundManager.Instance.SetBgmVolume(currentLevel + 1);
         UpdateAllUI(); // UI‚ğXV
@@ -47,6 +48,7 @@ public class OptionUIManager : MonoBehaviour // ˆÈ‘O‚ÌİŒv’Ê‚èUIManager‚ğŒp³‚µ‚
     // BGM‰¹—Ê‚ğ‰º‚°‚é
     private void OnBgmMinus()
     {
+        SoundManager.Instance.PlaySe(SeType.UIClick);
         int currentLevel = SoundManager.Instance.BgmVolumeLevel;
         SoundManager.Instance.SetBgmVolume(currentLevel - 1);
         UpdateAllUI();
@@ -55,6 +57,7 @@ public class OptionUIManager : MonoBehaviour // ˆÈ‘O‚ÌİŒv’Ê‚èUIManager‚ğŒp³‚µ‚
     // SE‰¹—Ê‚ğã‚°‚é
     private void OnSePlus()
     {
+        SoundManager.Instance.PlaySe(SeType.UIClick);
         int currentLevel = SoundManager.Instance.SeVolumeLevel;
         SoundManager.Instance.SetSeVolume(currentLevel + 1);
         UpdateAllUI();
@@ -63,6 +66,7 @@ public class OptionUIManager : MonoBehaviour // ˆÈ‘O‚ÌİŒv’Ê‚èUIManager‚ğŒp³‚µ‚
     // SE‰¹—Ê‚ğ‰º‚°‚é
     private void OnSeMinus()
     {
+        SoundManager.Instance.PlaySe(SeType.UIClick);
         int currentLevel = SoundManager.Instance.SeVolumeLevel;
         SoundManager.Instance.SetSeVolume(currentLevel - 1);
         UpdateAllUI();
@@ -71,6 +75,7 @@ public class OptionUIManager : MonoBehaviour // ˆÈ‘O‚ÌİŒv’Ê‚èUIManager‚ğŒp³‚µ‚
     // •Â‚¶‚éƒ{ƒ^ƒ“
     private void OnClose()
     {
+        SoundManager.Instance.PlaySe(SeType.UIClick);
         // ƒ^ƒCƒgƒ‹ƒV[ƒ“‚É–ß‚éiƒV[ƒ“–¼‚ÍÀÛ‚Ìƒtƒ@ƒCƒ‹–¼‚É‡‚í‚¹‚éj
         SceneController.Instance.ChangeScene("TitleScene");
     }
@@ -90,9 +95,9 @@ public class OptionUIManager : MonoBehaviour // ˆÈ‘O‚ÌİŒv’Ê‚èUIManager‚ğŒp³‚µ‚
 
         // +/-ƒ{ƒ^ƒ“‚Ì—LŒø/–³Œø‚ğØ‚è‘Ö‚¦
         bgmMinusButton.interactable = bgmLevel > 0;
-        bgmPlusButton.interactable = bgmLevel < 5;
+        bgmPlusButton.interactable = bgmLevel < 4;
         seMinusButton.interactable = seLevel > 0;
-        sePlusButton.interactable = seLevel < 5;
+        sePlusButton.interactable = seLevel < 4;
     }
 
     /// <summary>
@@ -100,8 +105,8 @@ public class OptionUIManager : MonoBehaviour // ˆÈ‘O‚ÌİŒv’Ê‚èUIManager‚ğŒp³‚µ‚
     /// </summary>
     private void UpdatePienIconPosition(RectTransform icon, Transform start, Transform end, int level)
     {
-        // 0-5‚ÌƒŒƒxƒ‹‚ğ0.0-1.0‚ÌŠ„‡‚É•ÏŠ·
-        float t = level / 5.0f;
+        // 0-4‚ÌƒŒƒxƒ‹‚ğ0.0-1.0‚ÌŠ„‡‚É•ÏŠ·
+        float t = level / 4.0f;
         // n“_‚ÆI“_‚ÌŠÔ‚ÌˆÊ’u‚ğüŒ`•âŠÔ‚ÅŒvZ
         icon.position = Vector3.Lerp(start.position, end.position, t);
     }
