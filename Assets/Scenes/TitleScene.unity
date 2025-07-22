@@ -3420,8 +3420,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u6025\u3044\u3067\u300C\u5FD8\u308C\u3082\u306E\u300D\u3092\u53D6\u308A\u306B\u5E30\u308D\u3046\uFF01\uFF01"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 83564b4819a21f44287b0c806a079385, type: 2}
-  m_sharedMaterial: {fileID: -7086013789674489051, guid: 83564b4819a21f44287b0c806a079385, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b539abe811f762a4bb499b718d84f826, type: 2}
+  m_sharedMaterial: {fileID: 362598315028838830, guid: b539abe811f762a4bb499b718d84f826, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
