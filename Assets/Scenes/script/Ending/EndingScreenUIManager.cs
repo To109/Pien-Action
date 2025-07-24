@@ -92,11 +92,16 @@ public class EndingScreenUIManager : MonoBehaviour
             // ▶ マークを表示してクリックを待つ
             nextPageIndicator.SetActive(true);
             yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
+
+            SoundManager.Instance.PlaySe(SeType.UIClick);
+
             nextPageIndicator.SetActive(false);
         }
 
         // 最後のページ表示後、最後のクリックを待ってから終了
         yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
+
+        SoundManager.Instance.PlaySe(SeType.UIClick);
 
         // 全てのテキストが終わったら次のシーンへ
         FinishEnding();
@@ -114,6 +119,8 @@ public class EndingScreenUIManager : MonoBehaviour
 
     public void OnSkipButtonClicked()
     {
+        SoundManager.Instance.PlaySe(SeType.UIClick);
+
         // 再生中のコルーチンを停止
         if (typewriterCoroutine != null)
         {
