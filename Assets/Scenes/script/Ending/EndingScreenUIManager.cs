@@ -103,11 +103,11 @@ public class EndingScreenUIManager : MonoBehaviour
         if (isRankedIn)
         {
             // ランキング登録と表示は同じシーンで行う設計なので、同じメソッドを呼ぶ
-            SceneController.Instance.LoadRankingScene();
+            SceneController.Instance.LoadTitleScene();
         }
         else
         {
-            SceneController.Instance.LoadRankingScene();
+            SceneController.Instance.LoadTitleScene();
         }
     }
 }
