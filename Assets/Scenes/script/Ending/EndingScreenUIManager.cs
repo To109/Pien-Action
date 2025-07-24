@@ -20,7 +20,7 @@ public class EndingScreenUIManager : MonoBehaviour
 
     // --- 内部で使う変数 ---
     private EndingContent currentEndingContent; // 表示するエンディングのデータ
-    private bool isRankedIn; // ランキング登録対象か
+    // private bool isRankedIn; // ★★ ランキング登録対象か → 不要なので削除 ★★
     private Coroutine typewriterCoroutine; // テキスト表示コルーチンの参照
 
     void Start()
@@ -28,32 +28,55 @@ public class EndingScreenUIManager : MonoBehaviour
         // スキップボタンが押されたらOnSkipButtonClickedメソッドを呼ぶ
         endingSkipButton.onClick.AddListener(OnSkipButtonClicked);
 
-        // デバッグ用!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!に、Aエンドを開始してみる
-        // 修正前: StartEnding(EndingType.A, true);
-        Setup(EndingType.A, true); // 修正後: メソッド名を「Setup」に変更
+        // デバッグ用に、Bエンドを開始してみる
+        Setup(EndingType.B); // ★★ 引数を修正 ★★
     }
 
     // SceneControllerから呼び出されるエントリーポイント
-    public void Setup(EndingType type, bool rankedIn)
+    public void Setup(EndingType type) // ★★ 引数を修正 ★★
     {
-        this.isRankedIn = rankedIn; // 次のシーン遷移のために保持
+        // this.isRankedIn = rankedIn; // ★★ 不要なので削除 ★★
 
-        // ① 対応するエンディングのデータをEndingManagerから取得
+        // ★★ ① 対応するエンディングのBGMを再生する処理を追加 ★★
+        PlayEndingBgm(type);
+
+        // ② 対応するエンディングのデータをEndingManagerから取得
         currentEndingContent = EndingManager.Instance.GetEndingContent(type);
 
-        // ② CGをセットアップ
+        // ③ CGをセットアップ
         a_image.gameObject.SetActive(type == EndingType.A);
         b_image.gameObject.SetActive(type == EndingType.B);
         c_image.gameObject.SetActive(type == EndingType.C);
 
-        // a_image.sprite = currentEndingContent.endingCg; // より汎用的な実装
-
-        // ③ ストーリー再生を開始
+        // ④ ストーリー再生を開始
         if (typewriterCoroutine != null)
         {
             StopCoroutine(typewriterCoroutine);
         }
         typewriterCoroutine = StartCoroutine(PlayStory());
+    }
+
+    // ★★ BGM再生用のメソッドを新たに追加 ★★
+    private void PlayEndingBgm(EndingType type)
+    {
+        BgmType bgmToPlay = BgmType.None; // デフォルトは音なし
+        switch (type)
+        {
+            case EndingType.A:
+                bgmToPlay = BgmType.END_A;
+                break;
+            case EndingType.B:
+                bgmToPlay = BgmType.END_B;
+                break;
+            case EndingType.C:
+                bgmToPlay = BgmType.END_C;
+                break;
+        }
+
+        if (bgmToPlay != BgmType.None)
+        {
+            SoundManager.Instance.PlayBgm(bgmToPlay);
+        }
     }
 
     private IEnumerator PlayStory()
@@ -68,9 +91,12 @@ public class EndingScreenUIManager : MonoBehaviour
 
             // ▶ マークを表示してクリックを待つ
             nextPageIndicator.SetActive(true);
-            yield return new WaitUntil(() => Input.GetMouseButtonDown(0)); // 🖱️ クリック判定はここ！
+            yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
             nextPageIndicator.SetActive(false);
         }
+
+        // 最後のページ表示後、最後のクリックを待ってから終了
+        yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
 
         // 全てのテキストが終わったら次のシーンへ
         FinishEnding();
@@ -99,15 +125,7 @@ public class EndingScreenUIManager : MonoBehaviour
 
     private void FinishEnding()
     {
-        // 保持しておいたランクイン判定結果に応じて次のシーンへ
-        if (isRankedIn)
-        {
-            // ランキング登録と表示は同じシーンで行う設計なので、同じメソッドを呼ぶ
-            SceneController.Instance.LoadTitleScene();
-        }
-        else
-        {
-            SceneController.Instance.LoadTitleScene();
-        }
+        // ★★ ランキングの判定を削除し、常にタイトル画面へ遷移するように修正 ★★
+        SceneController.Instance.LoadTitleScene();
     }
 }

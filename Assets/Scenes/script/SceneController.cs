@@ -24,6 +24,7 @@ public class SceneController : MonoBehaviour
 
     public void LoadTitleScene()
     {
+        SoundManager.Instance.PlayBgm(BgmType.Title);
         SceneManager.LoadScene("TitleScene"); // シーン名は実際のファイル名に合わせる
     }
 
