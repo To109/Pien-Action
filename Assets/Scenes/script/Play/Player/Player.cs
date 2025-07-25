@@ -21,25 +21,35 @@ public class Player : MonoBehaviour
     private Rigidbody2D _rigid; // プレイヤーの物理挙動用
     private Animator _anim; // プレイヤーのアニメーション制御用
     private SpriteRenderer _spriteRenderer; // プレイヤーの見た目を変更するためのスプライトレンダラー
-    private bool _bJump; // ジャンプ中であるかを判定するフラグ
+    public bool _bJump; // ジャンプ中であるかを判定するフラグ
+    private Camera _cachedMainCamera; // カメラの参照をキャッシュするフィールド
+
+
+    void Awake()
+    {
+        // 各コンポーネントへの参照を取得
+        _cachedMainCamera = Camera.main;
+        _rigid = GetComponent<Rigidbody2D>();
+        _anim = GetComponent<Animator>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+
+        // 初期状態では地面にいるとみなす
+        _bJump = false;
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        _rigid = GetComponent<Rigidbody2D>();
-        _anim = GetComponent<Animator>();
-        _spriteRenderer = GetComponent<SpriteRenderer>();
-        _bJump = false; // 初期状態では地面にいるとみなす
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        _HitFloor(); // 地面との接触判定
         _Move(); // 移動処理
         _LookMoveDirec(); // 向きを変更
-        Debug.Log(_hp); // 地面との接触判定
-        _HitFloor(); // HPをデバッグログに表示（開発用）
+        Debug.Log(_hp); // HPをデバッグログに表示（開発用）
     }
 
     // 左右移動処理
@@ -92,21 +102,32 @@ public class Player : MonoBehaviour
     // 地面に接しているかを判定する処理
     private void _HitFloor()
     {
-        int layerMask = LayerMask.GetMask("Floor"); // Floorレイヤーのみ対象
-        // 足元の中心位置を基準に、BoxCastで接地判定
-        Vector3 rayPos = transform.position - new Vector3(0.0f, transform.lossyScale.y / 2.0f);
-        Vector3 raySize = new Vector3(transform.lossyScale.x - 0.1f, 0.1f);
-        RaycastHit2D rayHit = Physics2D.BoxCast(rayPos, raySize, 0.0f, Vector2.zero, 0.0f, layerMask);
-        if (rayHit.transform == null)
+        // BoxCollider2Dの情報を取得
+        BoxCollider2D collider = GetComponent<BoxCollider2D>();
+        Bounds bounds = collider.bounds;
+
+        int layerMask = LayerMask.GetMask("Floor");
+        //float additionalDistance = 0.09f; // ← この数値を大きくすると、より下にずれる
+        // 上にずらしたい距離
+        float upwardShift = 0.1f; // ← この数値を大きくすると、より上にずれる
+
+        // コライダーの底面中央を基準にBoxCastを飛ばす
+        Vector2 raySize = new Vector2(bounds.size.x * 0.0f, 0.2f); // 横幅を少し狭めると安定しやすい
+        Vector2 rayPos = new Vector2(bounds.center.x, bounds.center.y - bounds.extents.y - raySize.y / 2f + upwardShift);
+        Collider2D rayHit = Physics2D.OverlapBox(rayPos, raySize, 0.0f, layerMask);
+
+        if (rayHit == null)
         {
             _bJump = true; // 接地していない＝空中
-            _anim.SetBool("Jump", _bJump); // ジャンプアニメーション再生
-            return;
+            _anim.SetBool("Jump", _bJump);
         }
-        if (rayHit.transform.tag == "Floor" && _bJump)
+        else
         {
-            _bJump = false; // 接地中
-            _anim.SetBool("Jump", _bJump); // ジャンプ終了アニメーション
+            if (_bJump) // ジャンプ中から接地状態に変わった場合
+            {
+                _bJump = false; // 接地中
+                _anim.SetBool("Jump", _bJump);
+            }
         }
     }
 
@@ -181,8 +202,8 @@ public class Player : MonoBehaviour
         }
 
         _rigid.AddForce(Vector2.up * _jumpSpeed, ForceMode2D.Impulse); // ジャンプ力を加える
-        //_bJump = true;
-        //_anim.SetBool("Jump", _bJump);
+        _bJump = true;
+        _anim.SetBool("Jump", _bJump);
     }
 
     // プレイヤーが敵からダメージを受けたときにHPを減らす処理
@@ -196,5 +217,28 @@ public class Player : MonoBehaviour
     public int GetHP()
     {
         return (int)_hp;
+    }
+
+    private void OnDrawGizmos()
+    {
+        // BoxCollider2Dがアタッチされていないとエラーになるためチェック
+        if (GetComponent<BoxCollider2D>() == null) return;
+
+        // BoxCollider2Dの情報を取得
+        BoxCollider2D collider = GetComponent<BoxCollider2D>();
+        Bounds bounds = collider.bounds;
+
+        // 判定ボックスを下にずらしたい追加の距離
+        //float additionalDistance = 0.09f; // ← この数値を大きくすると、より下にずれる
+        // 上にずらしたい距離
+        float upwardShift = 0.1f; // ← この数値を大きくすると、より上にずれる
+
+        Gizmos.color = Color.green;
+
+        // コライダーの底面中央を基準に四角形を描画
+        Vector2 raySize = new Vector2(bounds.size.x * 0.0f, 0.2f);
+        Vector2 rayPos = new Vector2(bounds.center.x, bounds.center.y - bounds.extents.y - raySize.y / 2f + upwardShift);
+
+        Gizmos.DrawWireCube(rayPos, raySize);
     }
 }

@@ -320,9 +320,9 @@ GameObject:
   - component: {fileID: 57742406}
   - component: {fileID: 57742405}
   - component: {fileID: 57742404}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnemySpawner (5)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8759,9 +8759,9 @@ GameObject:
   - component: {fileID: 94691372}
   - component: {fileID: 94691371}
   - component: {fileID: 94691370}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnemySpawner (6)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9163,7 +9163,7 @@ Transform:
   m_GameObject: {fileID: 311507908}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.3, y: -4, z: -10}
+  m_LocalPosition: {x: -8.3, y: -3.62, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9781,7 +9781,6 @@ GameObject:
   m_Component:
   - component: {fileID: 495086949}
   - component: {fileID: 495086948}
-  - component: {fileID: 495086950}
   m_Layer: 0
   m_Name: MainManager
   m_TagString: Untagged
@@ -9818,108 +9817,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &495086950
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 495086947}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 4ddae00e87ca31d41b1fe8684f426910, type: 3}
-  m_NotificationBehavior: 2
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 416a16e3-ee75-4bd8-abe4-2aa185d0084d
-    m_ActionName: 'Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 10cd97ec-ae87-44c7-bd78-996089b8978a
-    m_ActionName: 'Player/Look[/Mouse/delta]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 417b6913-de0e-483d-a310-692ce43c2cf2
-    m_ActionName: 'Player/Fire[/Mouse/leftButton]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: d347150e-cb8e-487e-b5d0-6d5632bcda7f
-    m_ActionName: 'Player/Jump[/Keyboard/space]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 479faa55-7ede-420d-805b-b86816b2dfd9
-    m_ActionName: 'UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 3688cbb3-163b-4a27-a000-c21edcb7ab34
-    m_ActionName: 'UI/Submit[/Keyboard/enter]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: d720d910-42eb-4421-abb3-3159a56f2e97
-    m_ActionName: 'UI/Cancel[/Keyboard/escape]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 4a20bdc0-3fc7-4962-b2db-f2b1913daab5
-    m_ActionName: 'UI/Point[/Mouse/position]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: ddf9e082-7e18-4c24-b25e-77247c8f7e64
-    m_ActionName: 'UI/Click[/Mouse/leftButton]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 42ec1ba5-c681-4067-8079-e58c064fc7fb
-    m_ActionName: 'UI/ScrollWheel[/Mouse/scroll]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 6c19e76e-9d98-4181-ac5e-0b973f34db52
-    m_ActionName: 'UI/MiddleClick[/Mouse/middleButton]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: b405f5bb-1b27-4276-9d89-a6a7d0add794
-    m_ActionName: 'UI/RightClick[/Mouse/rightButton]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 236069c9-9468-440f-9dc5-940458919648
-    m_ActionName: UI/TrackedDevicePosition
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 8f7bcc08-e9c3-45c3-a56a-f8c694b0c39b
-    m_ActionName: UI/TrackedDeviceOrientation
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 495086948}
-        m_TargetAssemblyTypeName: MainManager, Assembly-CSharp
-        m_MethodName: OnRestart
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 58686b0c-c657-4d4c-9b75-cefb3afc67b3
-    m_ActionName: 'UI/Restart[/Keyboard/space]'
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: UI
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!1 &501861146
 GameObject:
   m_ObjectHideFlags: 0
@@ -10427,9 +10324,9 @@ GameObject:
   - component: {fileID: 690714388}
   - component: {fileID: 690714387}
   - component: {fileID: 690714386}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnemySpawner (7)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10631,9 +10528,9 @@ GameObject:
   - component: {fileID: 873753544}
   - component: {fileID: 873753543}
   - component: {fileID: 873753542}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnemySpawner (4)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10923,7 +10820,53 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1363330944132897543, guid: d2fc32a0658f07345ac6d57ffdbf4f86, type: 3}
   m_PrefabInstance: {fileID: 8532533986112550290}
   m_PrefabAsset: {fileID: 0}
---- !u!58 &1080769473
+--- !u!61 &1080769480
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1080769465}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -0.5, y: -0.2}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 6.55, y: 9.87}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 5.6, y: 9.3}
+  m_EdgeRadius: 0
+--- !u!58 &1080769481
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10957,8 +10900,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.5, y: -1.3}
-  m_Radius: 3.5
+  m_Offset: {x: -0.5, y: -1.9}
+  m_Radius: 2.8
 --- !u!1 &1101594473
 GameObject:
   m_ObjectHideFlags: 0
@@ -10970,9 +10913,9 @@ GameObject:
   - component: {fileID: 1101594476}
   - component: {fileID: 1101594475}
   - component: {fileID: 1101594474}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnemySpawner (9)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11071,9 +11014,9 @@ GameObject:
   - component: {fileID: 1190465964}
   - component: {fileID: 1190465963}
   - component: {fileID: 1190465962}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnemySpawner (3)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11639,9 +11582,9 @@ GameObject:
   - component: {fileID: 1376518023}
   - component: {fileID: 1376518024}
   - component: {fileID: 1376518025}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnemySpawner
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12365,9 +12308,9 @@ GameObject:
   - component: {fileID: 1521406383}
   - component: {fileID: 1521406382}
   - component: {fileID: 1521406381}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnemySpawner (10)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12658,9 +12601,9 @@ GameObject:
   - component: {fileID: 1693582585}
   - component: {fileID: 1693582584}
   - component: {fileID: 1693582583}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnemySpawner (2)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13037,9 +12980,9 @@ GameObject:
   - component: {fileID: 1873467178}
   - component: {fileID: 1873467177}
   - component: {fileID: 1873467176}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnemySpawner (1)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13274,9 +13217,9 @@ GameObject:
   - component: {fileID: 1945666888}
   - component: {fileID: 1945666887}
   - component: {fileID: 1945666886}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnemySpawner (8)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13678,7 +13621,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 556116213889306241, guid: d2fc32a0658f07345ac6d57ffdbf4f86, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7
+      value: -6.8
       objectReference: {fileID: 0}
     - target: {fileID: 556116213889306241, guid: d2fc32a0658f07345ac6d57ffdbf4f86, type: 3}
       propertyPath: m_LocalPosition.z
@@ -13737,6 +13680,10 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 1363330944132897543, guid: d2fc32a0658f07345ac6d57ffdbf4f86, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1363330944132897543, guid: d2fc32a0658f07345ac6d57ffdbf4f86, type: 3}
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
@@ -13748,6 +13695,10 @@ PrefabInstance:
       propertyPath: _moveSpeed
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 4727050003750637237, guid: d2fc32a0658f07345ac6d57ffdbf4f86, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 6da2cdeaf86ef8c41b2f80210a4d774c, type: 2}
     - target: {fileID: 5233879566436928844, guid: d2fc32a0658f07345ac6d57ffdbf4f86, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -13764,6 +13715,38 @@ PrefabInstance:
       propertyPath: m_ActionEvents.Array.data[14].m_ActionName
       value: 'UI/Restart[/Keyboard/space]'
       objectReference: {fileID: 0}
+    - target: {fileID: 7570557388939557337, guid: d2fc32a0658f07345ac6d57ffdbf4f86, type: 3}
+      propertyPath: m_ActionEvents.Array.data[14].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7570557388939557337, guid: d2fc32a0658f07345ac6d57ffdbf4f86, type: 3}
+      propertyPath: m_ActionEvents.Array.data[14].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7570557388939557337, guid: d2fc32a0658f07345ac6d57ffdbf4f86, type: 3}
+      propertyPath: m_ActionEvents.Array.data[14].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 495086948}
+    - target: {fileID: 7570557388939557337, guid: d2fc32a0658f07345ac6d57ffdbf4f86, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7570557388939557337, guid: d2fc32a0658f07345ac6d57ffdbf4f86, type: 3}
+      propertyPath: m_ActionEvents.Array.data[14].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7570557388939557337, guid: d2fc32a0658f07345ac6d57ffdbf4f86, type: 3}
+      propertyPath: m_ActionEvents.Array.data[14].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnRestart
+      objectReference: {fileID: 0}
+    - target: {fileID: 7570557388939557337, guid: d2fc32a0658f07345ac6d57ffdbf4f86, type: 3}
+      propertyPath: m_ActionEvents.Array.data[14].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MainManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7570557388939557337, guid: d2fc32a0658f07345ac6d57ffdbf4f86, type: 3}
+      propertyPath: m_ActionEvents.Array.data[14].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8713845570319549690, guid: d2fc32a0658f07345ac6d57ffdbf4f86, type: 3}
     m_RemovedGameObjects: []
@@ -13771,7 +13754,10 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1363330944132897543, guid: d2fc32a0658f07345ac6d57ffdbf4f86, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1080769473}
+      addedObject: {fileID: 1080769480}
+    - targetCorrespondingSourceObject: {fileID: 1363330944132897543, guid: d2fc32a0658f07345ac6d57ffdbf4f86, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1080769481}
   m_SourcePrefab: {fileID: 100100000, guid: d2fc32a0658f07345ac6d57ffdbf4f86, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

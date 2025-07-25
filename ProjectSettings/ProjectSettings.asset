@@ -687,11 +687,11 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: aa0af76b-80e0-4a20-bfc5-635fc21abb0d
+  cloudProjectId: 39ffbe38-9ff1-45ac-8808-34b96885b2e5
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Pien Action
-  organizationId: tomosan3317
+  projectName: "(\u4EEE)Game project"
+  organizationId: towa0914
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
