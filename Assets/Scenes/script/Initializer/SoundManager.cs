@@ -136,22 +136,22 @@ public class SoundManager : MonoBehaviour
     }
 
     /// <summary>
-    /// BGMの音量レベル（0-5段階）を設定します。
+    /// BGMの音量レベル（0-4段階）を設定します。
     /// </summary>
     public void SetBgmVolume(int level)
     {
-        BgmVolumeLevel = Mathf.Clamp(level, 0, 5); // 0-5の範囲に補正
-        bgmSource.volume = BgmVolumeLevel / 5.0f; // 0.0-1.0のfloat値に変換
+        BgmVolumeLevel = Mathf.Clamp(level, 0, 4); // 0-4の範囲に補正
+        bgmSource.volume = BgmVolumeLevel / 4.0f; // 0.0-1.0のfloat値に変換
         SaveVolumeSettings();
     }
 
     /// <summary>
-    /// SEの音量レベル（0-5段階）を設定します。
+    /// SEの音量レベル（0-4段階）を設定します。
     /// </summary>
     public void SetSeVolume(int level)
     {
-        SeVolumeLevel = Mathf.Clamp(level, 0, 5); // 0-5の範囲に補正
-        seSource.volume = SeVolumeLevel / 5.0f;
+        SeVolumeLevel = Mathf.Clamp(level, 0, 4); // 0-4の範囲に補正
+        seSource.volume = SeVolumeLevel / 4.0f;
         SaveVolumeSettings();
     }
 
@@ -169,7 +169,7 @@ public class SoundManager : MonoBehaviour
         // SetSeVolume(seLevel);
 
         // GameSettingsが未実装の場合は、デフォルト値を設定
-        SetBgmVolume(5);
-        SetSeVolume(5);
+        SetBgmVolume(1);
+        SetSeVolume(4);
     }
 }
