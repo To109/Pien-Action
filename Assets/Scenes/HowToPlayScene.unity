@@ -567,7 +567,7 @@ Transform:
   m_GameObject: {fileID: 91708684}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.100321, y: 0.619565, z: -1164.9058}
+  m_LocalPosition: {x: -5.100321, y: 0.3199998, z: -1164.9058}
   m_LocalScale: {x: 1.2764, y: 1.0213, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -918,7 +918,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &262306794
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1346,7 +1346,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.5004497, y: 0.619565}
+  m_AnchoredPosition: {x: -2.5004497, y: 0.32}
   m_SizeDelta: {x: 330.6349, y: 51.9211}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &470114747
@@ -1483,7 +1483,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4.3046994, y: 0.619565}
+  m_AnchoredPosition: {x: -4.3046994, y: 1.0895646}
   m_SizeDelta: {x: 150, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &487388980
@@ -1754,7 +1754,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.8599998, y: 0.74}
+  m_AnchoredPosition: {x: -0.8599998, y: 1.21}
   m_SizeDelta: {x: 330.6349, y: 51.9211}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &612891488
@@ -1891,7 +1891,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5.100322, y: 0.619565}
+  m_AnchoredPosition: {x: -5.100322, y: 0.3199998}
   m_SizeDelta: {x: 119.6169, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &669895248
@@ -2117,7 +2117,7 @@ Transform:
   m_GameObject: {fileID: 725946636}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.3047, y: 0.619565, z: -1164.9058}
+  m_LocalPosition: {x: -4.3047, y: 1.5195651, z: -1164.9058}
   m_LocalScale: {x: 2.8676481, y: 1.0213, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2444,7 +2444,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.8599998, y: 0.75}
+  m_AnchoredPosition: {x: -0.8599998, y: 1.65}
   m_SizeDelta: {x: 330.6349, y: 51.9211}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &800085388
@@ -2989,7 +2989,7 @@ Transform:
   m_GameObject: {fileID: 980926686}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.3047, y: 0.619565, z: -1164.9058}
+  m_LocalPosition: {x: -4.3047, y: 1.0895646, z: -1164.9058}
   m_LocalScale: {x: 2.8676481, y: 1.0213, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3137,7 +3137,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1179156582
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3975,7 +3975,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1384350847
 Transform:
   m_ObjectHideFlags: 0
@@ -4780,7 +4780,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4.3047, y: 0.619565}
+  m_AnchoredPosition: {x: -4.3047, y: 1.5195651}
   m_SizeDelta: {x: 119.6169, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &1822351844
@@ -5208,7 +5208,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1969488570
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5449,7 +5449,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2082824403
 Transform:
   m_ObjectHideFlags: 0
