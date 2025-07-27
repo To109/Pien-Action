@@ -265,8 +265,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: This area is where the text of your story will be printed
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: b539abe811f762a4bb499b718d84f826, type: 2}
-  m_sharedMaterial: {fileID: 362598315028838830, guid: b539abe811f762a4bb499b718d84f826, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 39a1f32062d2cd94b97ef83b37f810c9, type: 2}
+  m_sharedMaterial: {fileID: -3726187602450927727, guid: 39a1f32062d2cd94b97ef83b37f810c9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -763,8 +763,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: SKIP
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: b539abe811f762a4bb499b718d84f826, type: 2}
-  m_sharedMaterial: {fileID: 362598315028838830, guid: b539abe811f762a4bb499b718d84f826, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 39a1f32062d2cd94b97ef83b37f810c9, type: 2}
+  m_sharedMaterial: {fileID: -3726187602450927727, guid: 39a1f32062d2cd94b97ef83b37f810c9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
