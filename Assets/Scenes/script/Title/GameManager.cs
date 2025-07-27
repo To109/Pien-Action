@@ -5,6 +5,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
+    public EndingType EndingToPlay { get; set; } 
+
     // ゲーム内データ
     private float remainingTime;
     

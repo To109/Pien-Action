@@ -28,8 +28,12 @@ public class EndingScreenUIManager : MonoBehaviour
         // スキップボタンが押されたらOnSkipButtonClickedメソッドを呼ぶ
         endingSkipButton.onClick.AddListener(OnSkipButtonClicked);
 
-        // デバッグ用に、Bエンドを開始してみる
-        Setup(EndingType.B); // ★★ 引数を修正 ★★
+        // ★★ 以下の処理に差し替え ★★
+        // GameManagerから、再生すべきエンディングの種類を受け取る
+        EndingType typeToPlay = GameManager.Instance.EndingToPlay;
+        
+        // 受け取った情報でエンディングを開始する
+        Setup(typeToPlay);
     }
 
     // SceneControllerから呼び出されるエントリーポイント

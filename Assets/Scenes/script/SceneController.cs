@@ -3,12 +3,12 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
-    // ƒVƒ“ƒOƒ‹ƒgƒ“À‘•
+    // ï¿½Vï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     public static SceneController Instance { get; private set; }
 
     void Awake()
     {
-        // ƒVƒ“ƒOƒ‹ƒgƒ“‚Ìİ’è
+        // ï¿½Vï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Ìİ’ï¿½
         if (Instance == null)
         {
             Instance = this;
@@ -20,17 +20,17 @@ public class SceneController : MonoBehaviour
         }
     }
 
-    // --- ˆÀ‘S‚Èê—pƒƒ\ƒbƒhiƒR[ƒh‚©‚çŒÄ‚Ño‚·—pj---
+    // --- ï¿½ï¿½ï¿½Sï¿½Èï¿½pï¿½ï¿½ï¿½\ï¿½bï¿½hï¿½iï¿½Rï¿½[ï¿½hï¿½ï¿½ï¿½ï¿½Ä‚Ñoï¿½ï¿½ï¿½pï¿½j---
 
     public void LoadTitleScene()
     {
         SoundManager.Instance.PlayBgm(BgmType.Title);
-        SceneManager.LoadScene("TitleScene"); // ƒV[ƒ“–¼‚ÍÀÛ‚Ìƒtƒ@ƒCƒ‹–¼‚É‡‚í‚¹‚é
+        SceneManager.LoadScene("TitleScene"); // ï¿½Vï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½Íï¿½ï¿½Û‚Ìƒtï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½Éï¿½ï¿½í‚¹ï¿½ï¿½
     }
 
     public void LoadPlayScene()
     {
-        // ƒQ[ƒ€ŠJn‘O‚Ìƒf[ƒ^ƒZƒbƒgƒAƒbƒv‚È‚Ç‚ÍGameManager‚ªs‚¤
+        // ï¿½Qï¿½[ï¿½ï¿½ï¿½Jï¿½nï¿½Oï¿½Ìƒfï¿½[ï¿½^ï¿½Zï¿½bï¿½gï¿½Aï¿½bï¿½vï¿½È‚Ç‚ï¿½GameManagerï¿½ï¿½ï¿½sï¿½ï¿½
         SceneManager.LoadScene("PlayScene");
     }
 
@@ -39,22 +39,31 @@ public class SceneController : MonoBehaviour
         SceneManager.LoadScene("RankingScene");
     }
 
-    // ‘¼‚Ìê—pƒƒ\ƒbƒh‚à•K—v‚É‰‚¶‚Ä‚±‚±‚É’Ç‰Á...
+    // ï¿½ï¿½ï¿½Ìï¿½pï¿½ï¿½ï¿½\ï¿½bï¿½hï¿½ï¿½ï¿½Kï¿½vï¿½É‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½É’Ç‰ï¿½...
 
 
-    // --- ”Ä—p“I‚Èƒƒ\ƒbƒhiUIƒ{ƒ^ƒ“‚ÌOnClick()‚©‚çŒÄ‚Ño‚·—pj---
+    // --- ï¿½Ä—pï¿½Iï¿½Èƒï¿½ï¿½\ï¿½bï¿½hï¿½iUIï¿½{ï¿½^ï¿½ï¿½ï¿½ï¿½OnClick()ï¿½ï¿½ï¿½ï¿½Ä‚Ñoï¿½ï¿½ï¿½pï¿½j---
 
     /// <summary>
-    /// ˆø”‚Åw’è‚³‚ê‚½–¼‘O‚ÌƒV[ƒ“‚ğƒ[ƒh‚µ‚Ü‚·B
+    /// ï¿½ï¿½ï¿½ï¿½ï¿½Åwï¿½è‚³ï¿½ê‚½ï¿½ï¿½ï¿½Oï¿½ÌƒVï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
     /// </summary>
-    /// <param name="sceneName">ƒ[ƒh‚µ‚½‚¢ƒV[ƒ“‚Ìƒtƒ@ƒCƒ‹–¼</param>
+    /// <param name="sceneName">ï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½[ï¿½ï¿½ï¿½Ìƒtï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½</param>
     public void ChangeScene(string sceneName)
     {
         if (string.IsNullOrEmpty(sceneName))
         {
-            Debug.LogError("ƒV[ƒ“–¼‚ªw’è‚³‚ê‚Ä‚¢‚Ü‚¹‚ñI");
+            Debug.LogError("ï¿½Vï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½wï¿½è‚³ï¿½ï¿½Ä‚ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½I");
             return;
         }
         SceneManager.LoadScene(sceneName);
+    }
+
+    /// <summary>
+    /// æŒ‡å®šã•ã‚ŒãŸã‚¨ãƒ³ãƒ‡ã‚£ãƒ³ã‚°ç¨®åˆ¥ã§ã‚¨ãƒ³ãƒ‡ã‚£ãƒ³ã‚°ã‚·ãƒ¼ãƒ³ã‚’ãƒ­ãƒ¼ãƒ‰ã—ã¾ã™
+    /// </summary>
+    public void LoadEndingScene() // â˜…â˜… å¼•æ•°ã‚’å‰Šé™¤ â˜…â˜…
+    {
+        // GameManagerã«ãƒ‡ãƒ¼ã‚¿ãŒä¿å­˜ã•ã‚Œã¦ã„ã‚‹ã®ã§ã€ã“ã“ã§ã¯ã‚·ãƒ¼ãƒ³ã‚’ãƒ­ãƒ¼ãƒ‰ã™ã‚‹ã ã‘
+        SceneManager.LoadScene("EndingScene");
     }
 }

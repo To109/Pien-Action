@@ -247,5 +247,26 @@ public class Player : MonoBehaviour
         Gizmos.DrawWireCube(rayPos, raySize);
     }
     
+    
+ /// <summary>
+    /// ゲームクリア時のエンディング分岐のために、現在のライフ状態を返す
+    /// </summary>
+    public EndingType GetLifeStateForEnding()
+    {
+        // 仕様に基づき、ライフの割合を計算して対応するEndingTypeを返す
+        if (_hp >= _maxHp) // ライフが満タンの場合
+        {
+            return EndingType.A;
+        }
+        else if (_hp >= _maxHp * 0.5f) // ライフが50%以上の場合
+        {
+            return EndingType.B;
+        }
+        else // ライフが50%未満の場合
+        {
+            return EndingType.C;
+        }
+    }
+
     #endregion
-}
+} // ← この括弧の前に追記
