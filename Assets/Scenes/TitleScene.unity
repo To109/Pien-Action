@@ -1031,8 +1031,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u5352\u696D\u3067\u304D\u306A\u3044\u3088\u3045"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 39a1f32062d2cd94b97ef83b37f810c9, type: 2}
+  m_sharedMaterial: {fileID: -3726187602450927727, guid: 39a1f32062d2cd94b97ef83b37f810c9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2271,9 +2271,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1132420361}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c21680dce34e77043a1fa178275cb578, type: 3}
+  m_Script: {fileID: 11500000, guid: 0e871383b98a76a4c8ec7ef2f9469dc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  easyButton: {fileID: 1338030489}
+  normalButton: {fileID: 907759678}
+  hardButton: {fileID: 2092387186}
 --- !u!1 &1225658841
 GameObject:
   m_ObjectHideFlags: 0
@@ -2588,19 +2591,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1338030490}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 226801837}
-        m_TargetAssemblyTypeName: SceneChanger, Assembly-CSharp
-        m_MethodName: ChangeScene
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: PlayScene
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1338030490
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -520,6 +520,8 @@ GameObject:
   - component: {fileID: 1097689251}
   - component: {fileID: 1097689250}
   - component: {fileID: 1097689249}
+  - component: {fileID: 1097689253}
+  - component: {fileID: 1097689254}
   m_Layer: 0
   m_Name: _Manager
   m_TagString: Untagged
@@ -608,6 +610,43 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1097689253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1097689248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 015cc56d695fcc940bd5826ee16d4ea9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  difficultySettings:
+  - difficulty: 0
+    stageBgm: 5
+    initialPlayerHealth: 10
+    initialTimeLimit: 300
+  - difficulty: 1
+    stageBgm: 6
+    initialPlayerHealth: 5
+    initialTimeLimit: 200
+  - difficulty: 2
+    stageBgm: 7
+    initialPlayerHealth: 3
+    initialTimeLimit: 100
+--- !u!114 &1097689254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1097689248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93983d12354e0924d9f454178736470c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1129261043
 GameObject:
   m_ObjectHideFlags: 0

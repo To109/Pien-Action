@@ -10,8 +10,11 @@ public class Player : MonoBehaviour
     private float _moveSpeed;
     [SerializeField, Header("ジャンプ速度")]
     private float _jumpSpeed;
-    [SerializeField, Header("体力")]
-    private float _hp;
+    
+    // ★★ _hpのSerializeFieldを削除し、最大値と現在値を分ける ★★
+    private float _maxHp; // 最大ライフ
+    private float _hp;    // 現在のライフ
+
     [SerializeField, Header("無敵時間")]
     private float _damageTime;
     [SerializeField, Header("点滅時間")]
@@ -37,13 +40,11 @@ public class Player : MonoBehaviour
         _bJump = false;
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
 
     }
 
-    // Update is called once per frame
     void Update()
     {
         _HitFloor(); // 地面との接触判定
@@ -51,6 +52,49 @@ public class Player : MonoBehaviour
         _LookMoveDirec(); // 向きを変更
         Debug.Log(_hp); // HPをデバッグログに表示（開発用）
     }
+
+    // ★★ ここから下のHealth関連メソッドを修正・追加 ★★
+
+    /// <summary>
+    /// GameManagerから初期ライフを設定するためのメソッド
+    /// </summary>
+    /// <param name="health">初期ライフの値</param>
+    public void SetInitialHealth(int health)
+    {
+        _maxHp = health;
+        _hp = _maxHp;
+    }
+
+    /// <summary>
+    /// プレイヤーが敵からダメージを受けたときにHPを減らす処理
+    /// </summary>
+    /// <param name="damage">受けるダメージ量</param>
+    public void Damage(int damage)
+    {
+        _hp = Mathf.Max(_hp - damage, 0); // HPを減少（0以下にならない）
+        _Dead(); // HPが0なら死亡処理
+    }
+    
+    /// <summary>
+    /// アイテムなどでライフを回復するためのメソッド
+    /// </summary>
+    /// <param name="amount">回復量</param>
+    public void Heal(int amount)
+    {
+        // 回復しても最大ライフは超えないようにする
+        _hp = Mathf.Min(_hp + amount, _maxHp);
+    }
+
+    /// <summary>
+    /// 現在のHPを外部から取得する
+    /// </summary>
+    /// <returns>現在のHP（整数）</returns>
+    public int GetHP()
+    {
+        return (int)_hp;
+    }
+    
+    #region // --- 既存のメソッド（変更なし） ---
 
     // 左右移動処理
     private void _Move()
@@ -81,11 +125,6 @@ public class Player : MonoBehaviour
     // 他のコライダーとの衝突処理（敵やゴール）
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //if (collision.gameObject.tag == "Floor")
-        //{
-        //    _bJump = false;
-        //    _anim.SetBool("Jump", _bJump);
-        //}
         if (collision.gameObject.tag == "Enemy")
         {
             _HitEnemy(collision.gameObject); // 敵との接触処理
@@ -102,17 +141,11 @@ public class Player : MonoBehaviour
     // 地面に接しているかを判定する処理
     private void _HitFloor()
     {
-        // BoxCollider2Dの情報を取得
         BoxCollider2D collider = GetComponent<BoxCollider2D>();
         Bounds bounds = collider.bounds;
-
         int layerMask = LayerMask.GetMask("Floor");
-        //float additionalDistance = 0.09f; // ← この数値を大きくすると、より下にずれる
-        // 上にずらしたい距離
-        float upwardShift = 0.1f; // ← この数値を大きくすると、より上にずれる
-
-        // コライダーの底面中央を基準にBoxCastを飛ばす
-        Vector2 raySize = new Vector2(bounds.size.x * 0.0f, 0.2f); // 横幅を少し狭めると安定しやすい
+        float upwardShift = 0.1f;
+        Vector2 raySize = new Vector2(bounds.size.x * 0.0f, 0.2f);
         Vector2 rayPos = new Vector2(bounds.center.x, bounds.center.y - bounds.extents.y - raySize.y / 2f + upwardShift);
         Collider2D rayHit = Physics2D.OverlapBox(rayPos, raySize, 0.0f, layerMask);
 
@@ -136,7 +169,6 @@ public class Player : MonoBehaviour
     {
         float halfScaleY = transform.lossyScale.y / 2.0f;
         float enemyHalfScaleY = enemy.transform.lossyScale.y / 2.0f;
-        // プレイヤーが敵より上から接触していれば踏みつけ成功
         if (transform.position.y - (halfScaleY - 0.1f) >= enemy.transform.position.y + (enemyHalfScaleY - 0.1f))
         {
             Destroy(enemy); // 敵を倒す
@@ -159,7 +191,6 @@ public class Player : MonoBehaviour
         {
             yield return new WaitForSeconds(_flashTime);
             _spriteRenderer.color = new Color(color.r, color.g, color.b, 0.0f); // スプライトを透明に
-
             yield return new WaitForSeconds(_flashTime);
             _spriteRenderer.color = new Color(color.r, color.g, color.b, 1.0f); // スプライトを表示
         }
@@ -180,7 +211,6 @@ public class Player : MonoBehaviour
     private void OnBecameInvisible()
     {
         Camera camera = Camera.main;
-        // カメラ外かどうかを確認し、削除処理を実行
         if (camera.name == "Main Camera" && camera.transform.position.y > transform.position.y)
         {
             Destroy(gameObject); // プレイヤーを削除（ゲームオーバー扱い）
@@ -200,45 +230,22 @@ public class Player : MonoBehaviour
         {
             return; // 入力が成立していない or 空中でのジャンプは禁止
         }
-
         _rigid.AddForce(Vector2.up * _jumpSpeed, ForceMode2D.Impulse); // ジャンプ力を加える
         _bJump = true;
         _anim.SetBool("Jump", _bJump);
     }
 
-    // プレイヤーが敵からダメージを受けたときにHPを減らす処理
-    public void Damage(int damage)
-    {
-        _hp = Mathf.Max(_hp - damage, 0); // HPを減少（0以下にならない）
-        _Dead(); // HPが0なら死亡処理
-    }
-
-    // 現在のHPを外部から取得する
-    public int GetHP()
-    {
-        return (int)_hp;
-    }
-
     private void OnDrawGizmos()
     {
-        // BoxCollider2Dがアタッチされていないとエラーになるためチェック
         if (GetComponent<BoxCollider2D>() == null) return;
-
-        // BoxCollider2Dの情報を取得
         BoxCollider2D collider = GetComponent<BoxCollider2D>();
         Bounds bounds = collider.bounds;
-
-        // 判定ボックスを下にずらしたい追加の距離
-        //float additionalDistance = 0.09f; // ← この数値を大きくすると、より下にずれる
-        // 上にずらしたい距離
-        float upwardShift = 0.1f; // ← この数値を大きくすると、より上にずれる
-
+        float upwardShift = 0.1f;
         Gizmos.color = Color.green;
-
-        // コライダーの底面中央を基準に四角形を描画
         Vector2 raySize = new Vector2(bounds.size.x * 0.0f, 0.2f);
         Vector2 rayPos = new Vector2(bounds.center.x, bounds.center.y - bounds.extents.y - raySize.y / 2f + upwardShift);
-
         Gizmos.DrawWireCube(rayPos, raySize);
     }
+    
+    #endregion
 }
