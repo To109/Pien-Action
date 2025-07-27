@@ -9,6 +9,8 @@ TagManager:
   - Goal
   - Ladder
   - Platform
+  - NormalOrHard
+  - HardOnly
   layers:
   - Default
   - TransparentFX
