@@ -1,14 +1,14 @@
 using UnityEngine;
 
-public class LifeRecoveryItem : ItemBase // ItemBase‚ğŒp³
+public class LifeRecoveryItem : ItemBase // ItemBaseï¿½ï¿½ï¿½pï¿½ï¿½
 {
     [SerializeField]
-    private int healAmount = 1; // ‰ñ•œ—Ê
+    private int healAmount = 1; // ï¿½ñ•œ—ï¿½
 
-    // ItemBase‚ÌApplyEffectƒƒ\ƒbƒh‚Ì‹ï‘Ì“I‚È’†g‚ğ‹Lq
+    // ItemBaseï¿½ï¿½ApplyEffectï¿½ï¿½ï¿½\ï¿½bï¿½hï¿½Ì‹ï¿½Ì“Iï¿½È’ï¿½ï¿½gï¿½ï¿½ï¿½Lï¿½q
     protected override void ApplyEffect(Player player)
     {
-        // ƒvƒŒƒCƒ„[‚ÌHealƒƒ\ƒbƒh‚ğŒÄ‚Ño‚·
-        //player.Heal(healAmount);
+        // ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½ï¿½Healï¿½ï¿½ï¿½\ï¿½bï¿½hï¿½ï¿½ï¿½Ä‚Ñoï¿½ï¿½
+        player.Heal(healAmount);
     }
 }

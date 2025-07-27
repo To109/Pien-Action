@@ -1,14 +1,16 @@
 using UnityEngine;
 
-public class TimeExtendItem : ItemBase // ItemBase‚ğŒp³
+using UnityEngine;
+
+public class TimeExtendItem : ItemBase // ItemBaseã‚’ç¶™æ‰¿
 {
     [SerializeField]
-    private float timeToAdd = 10f; // ‰„’·‚·‚éŠÔi•bj
+    private float timeToAdd = 10f; // å»¶é•·ã™ã‚‹æ™‚é–“ï¼ˆç§’ï¼‰
 
-    // ItemBase‚ÌApplyEffectƒƒ\ƒbƒh‚Ì‹ï‘Ì“I‚È’†g‚ğ‹Lq
+    // ItemBaseã®ApplyEffectãƒ¡ã‚½ãƒƒãƒ‰ã®å…·ä½“çš„ãªä¸­èº«ã‚’è¨˜è¿°
     protected override void ApplyEffect(Player player)
     {
-        // MainManager‚ÌExtendTimeƒƒ\ƒbƒh‚ğŒÄ‚Ño‚·
-        // MainManager.Instance.ExtendTime(timeToAdd);
+        // â˜…â˜… å‘¼ã³å‡ºã—å…ˆã‚’MainManagerã‹ã‚‰GameManagerã«å¤‰æ›´ â˜…â˜…
+        GameManager.Instance.AddTime(timeToAdd);
     }
 }

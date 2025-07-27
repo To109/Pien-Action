@@ -103,4 +103,12 @@ public class GameManager : MonoBehaviour
             // ゲームオーバー処理...
         }
     }
-}
+/// <summary>
+    /// 残り時間を延長します。アイテムなどから呼び出されます。
+    /// </summary>
+    /// <param name="seconds">延長する秒数</param>
+    public void AddTime(float seconds)
+    {
+        remainingTime += seconds;
+    }
+} // ← この括弧の前に追記
