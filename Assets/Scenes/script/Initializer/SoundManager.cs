@@ -2,9 +2,9 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 
-// --- ‚±‚Ìƒtƒ@ƒCƒ‹“à‚Åg—p‚·‚éƒf[ƒ^’è‹` ---
+// --- ï¿½ï¿½ï¿½Ìƒtï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½Ågï¿½pï¿½ï¿½ï¿½ï¿½fï¿½[ï¿½^ï¿½ï¿½` ---
 
-// BGM‚Ìí—Ş‚ğ’è‹`
+// BGMï¿½Ìï¿½Ş‚ï¿½ï¿½`
 public enum BgmType
 {
     None,
@@ -18,7 +18,7 @@ public enum BgmType
     GameOver
 }
 
-// SE‚Ìí—Ş‚ğ’è‹`
+// SEï¿½Ìï¿½Ş‚ï¿½ï¿½`
 public enum SeType
 {
     Jump,
@@ -29,7 +29,7 @@ public enum SeType
     UIClick
 }
 
-// BGM‚Ìí—Ş‚ÆƒI[ƒfƒBƒIƒNƒŠƒbƒv‚ğ•R•t‚¯‚é‚½‚ß‚ÌƒNƒ‰ƒX
+// BGMï¿½Ìï¿½Ş‚ÆƒIï¿½[ï¿½fï¿½Bï¿½Iï¿½Nï¿½ï¿½ï¿½bï¿½vï¿½ï¿½Rï¿½tï¿½ï¿½ï¿½é‚½ï¿½ß‚ÌƒNï¿½ï¿½ï¿½X
 [System.Serializable]
 public class BgmSoundMapping
 {
@@ -37,7 +37,7 @@ public class BgmSoundMapping
     public AudioClip audioClip;
 }
 
-// SE‚Ìí—Ş‚ÆƒI[ƒfƒBƒIƒNƒŠƒbƒv‚ğ•R•t‚¯‚é‚½‚ß‚ÌƒNƒ‰ƒX
+// SEï¿½Ìï¿½Ş‚ÆƒIï¿½[ï¿½fï¿½Bï¿½Iï¿½Nï¿½ï¿½ï¿½bï¿½vï¿½ï¿½Rï¿½tï¿½ï¿½ï¿½é‚½ï¿½ß‚ÌƒNï¿½ï¿½ï¿½X
 [System.Serializable]
 public class SeSoundMapping
 {
@@ -46,69 +46,69 @@ public class SeSoundMapping
 }
 
 
-// --- SoundManager–{‘Ì ---
+// --- SoundManagerï¿½{ï¿½ï¿½ ---
 
 public class SoundManager : MonoBehaviour
 {
-    // ƒVƒ“ƒOƒ‹ƒgƒ“À‘•
+    // ï¿½Vï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     public static SoundManager Instance { get; private set; }
 
-    // === ƒCƒ“ƒXƒyƒNƒ^‚©‚çİ’è‚·‚é€–Ú ===
-    [Header("BGM‚ÌƒŠƒXƒg")]
+    // === ï¿½Cï¿½ï¿½ï¿½Xï¿½yï¿½Nï¿½^ï¿½ï¿½ï¿½ï¿½İ’è‚·ï¿½é€ï¿½ï¿½ ===
+    [Header("BGMï¿½Ìƒï¿½ï¿½Xï¿½g")]
     [SerializeField]
     private List<BgmSoundMapping> bgmClips;
 
-    [Header("SE‚ÌƒŠƒXƒg")]
+    [Header("SEï¿½Ìƒï¿½ï¿½Xï¿½g")]
     [SerializeField]
     private List<SeSoundMapping> seClips;
 
-    // === ƒRƒ“ƒ|[ƒlƒ“ƒgQÆ ===
+    // === ï¿½Rï¿½ï¿½ï¿½|ï¿½[ï¿½lï¿½ï¿½ï¿½gï¿½Qï¿½ï¿½ ===
     private AudioSource bgmSource;
     private AudioSource seSource;
 
-    // === “à•”ƒf[ƒ^ ===
+    // === ï¿½ï¿½ï¿½ï¿½ï¿½fï¿½[ï¿½^ ===
     public int BgmVolumeLevel { get; private set; }
     public int SeVolumeLevel { get; private set; }
 
     void Awake()
     {
-        // ƒVƒ“ƒOƒ‹ƒgƒ“ƒpƒ^[ƒ“‚ÌÀ‘•
+        // ï¿½Vï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½gï¿½ï¿½ï¿½pï¿½^ï¿½[ï¿½ï¿½ï¿½Ìï¿½ï¿½ï¿½
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // ƒV[ƒ“‘JˆÚ‚µ‚Ä‚à”jŠü‚³‚ê‚È‚¢‚æ‚¤‚É‚·‚é
+            DontDestroyOnLoad(gameObject); // ï¿½Vï¿½[ï¿½ï¿½ï¿½Jï¿½Ú‚ï¿½ï¿½Ä‚ï¿½ï¿½jï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½æ‚¤ï¿½É‚ï¿½ï¿½ï¿½
 
-            // BGM—p‚ÆSE—p‚ÌAudioSource‚ğ‚±‚ÌGameObject‚É©“®‚Å’Ç‰Á‚·‚é
+            // BGMï¿½pï¿½ï¿½SEï¿½pï¿½ï¿½AudioSourceï¿½ï¿½ï¿½ï¿½ï¿½ï¿½GameObjectï¿½Éï¿½ï¿½ï¿½ï¿½Å’Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½
             bgmSource = gameObject.AddComponent<AudioSource>();
             seSource = gameObject.AddComponent<AudioSource>();
 
-            bgmSource.loop = true; // BGM‚Íƒ‹[ƒvÄ¶‚ğŠî–{‚Æ‚·‚é
+            bgmSource.loop = true; // BGMï¿½Íƒï¿½ï¿½[ï¿½vï¿½Äï¿½ï¿½ï¿½ï¿½ï¿½{ï¿½Æ‚ï¿½ï¿½ï¿½
 
-            // •Û‘¶‚³‚ê‚Ä‚¢‚é‰¹—Êİ’è‚ğ“Ç‚İ‚Ş
+            // ï¿½Û‘ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½é‰¹ï¿½Êİ’ï¿½ï¿½Ç‚İï¿½ï¿½ï¿½
             LoadVolumeSettings();
         }
         else
         {
-            Destroy(gameObject); // Šù‚ÉƒCƒ“ƒXƒ^ƒ“ƒX‚ª‚ ‚ê‚Î©g‚ğ”jŠü
+            Destroy(gameObject); // ï¿½ï¿½ï¿½ÉƒCï¿½ï¿½ï¿½Xï¿½^ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îï¿½ï¿½gï¿½ï¿½jï¿½ï¿½
         }
     }
 
     /// <summary>
-    /// w’è‚³‚ê‚½í—Ş‚ÌBGM‚ğÄ¶‚µ‚Ü‚·B
+    /// ï¿½wï¿½è‚³ï¿½ê‚½ï¿½ï¿½Ş‚ï¿½BGMï¿½ï¿½ï¿½Äï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
     /// </summary>
     public void PlayBgm(BgmType bgmType)
     {
-        // ƒŠƒXƒg‚©‚ç‘Î‰‚·‚éƒI[ƒfƒBƒIƒNƒŠƒbƒv‚ğ’T‚·
+        // ï¿½ï¿½ï¿½Xï¿½gï¿½ï¿½ï¿½ï¿½Î‰ï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½[ï¿½fï¿½Bï¿½Iï¿½Nï¿½ï¿½ï¿½bï¿½vï¿½ï¿½Tï¿½ï¿½
         AudioClip clip = bgmClips.FirstOrDefault(m => m.bgmType == bgmType)?.audioClip;
 
         if (clip == null)
         {
-            Debug.LogWarning("BGM‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñ: " + bgmType);
+            Debug.LogWarning("BGMï¿½ï¿½ï¿½ï¿½ï¿½Â‚ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½: " + bgmType);
             bgmSource.Stop();
             return;
         }
 
-        // ‚à‚µˆá‚¤‹È‚ªÄ¶’†‚È‚çAV‚µ‚¢‹È‚É·‚µ‘Ö‚¦‚ÄÄ¶
+        // ï¿½ï¿½ï¿½ï¿½ï¿½á‚¤ï¿½È‚ï¿½ï¿½Äï¿½ï¿½ï¿½ï¿½È‚ï¿½Aï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½È‚Éï¿½ï¿½ï¿½ï¿½Ö‚ï¿½ï¿½ÄÄï¿½
         if (bgmSource.clip != clip || !bgmSource.isPlaying)
         {
             bgmSource.clip = clip;
@@ -117,58 +117,58 @@ public class SoundManager : MonoBehaviour
     }
 
     /// <summary>
-    /// w’è‚³‚ê‚½í—Ş‚ÌSE‚ğÄ¶‚µ‚Ü‚·B
+    /// ï¿½wï¿½è‚³ï¿½ê‚½ï¿½ï¿½Ş‚ï¿½SEï¿½ï¿½ï¿½Äï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
     /// </summary>
     public void PlaySe(SeType seType)
     {
-        // ƒŠƒXƒg‚©‚ç‘Î‰‚·‚éƒI[ƒfƒBƒIƒNƒŠƒbƒv‚ğ’T‚·
+        // ï¿½ï¿½ï¿½Xï¿½gï¿½ï¿½ï¿½ï¿½Î‰ï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½[ï¿½fï¿½Bï¿½Iï¿½Nï¿½ï¿½ï¿½bï¿½vï¿½ï¿½Tï¿½ï¿½
         AudioClip clip = seClips.FirstOrDefault(m => m.seType == seType)?.audioClip;
 
         if (clip != null)
         {
-            // PlayOneShot‚ğg‚¤‚±‚Æ‚ÅA‘¼‚ÌSE‚âBGM‚ğ~‚ß‚¸‚ÉÄ¶‚Å‚«‚é
+            // PlayOneShotï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Æ‚ÅAï¿½ï¿½ï¿½ï¿½SEï¿½ï¿½BGMï¿½ï¿½ï¿½~ï¿½ß‚ï¿½ï¿½ÉÄï¿½ï¿½Å‚ï¿½ï¿½ï¿½
             seSource.PlayOneShot(clip);
         }
         else
         {
-            Debug.LogWarning("SE‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñ: " + seType);
+            Debug.LogWarning("SEï¿½ï¿½ï¿½ï¿½ï¿½Â‚ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½: " + seType);
         }
     }
 
     /// <summary>
-    /// BGM‚Ì‰¹—ÊƒŒƒxƒ‹i0-4’iŠKj‚ğİ’è‚µ‚Ü‚·B
+    /// BGMï¿½Ì‰ï¿½ï¿½Êƒï¿½ï¿½xï¿½ï¿½ï¿½i0-4ï¿½iï¿½Kï¿½jï¿½ï¿½İ’è‚µï¿½Ü‚ï¿½ï¿½B
     /// </summary>
     public void SetBgmVolume(int level)
     {
-        BgmVolumeLevel = Mathf.Clamp(level, 0, 4); // 0-4‚Ì”ÍˆÍ‚É•â³
-        bgmSource.volume = BgmVolumeLevel / 4.0f; // 0.0-1.0‚Ìfloat’l‚É•ÏŠ·
+        BgmVolumeLevel = Mathf.Clamp(level, 0, 4); // 0-4ï¿½Ì”ÍˆÍ‚É•â³
+        bgmSource.volume = BgmVolumeLevel / 4.0f; // 0.0-1.0ï¿½ï¿½floatï¿½lï¿½É•ÏŠï¿½
         SaveVolumeSettings();
     }
 
     /// <summary>
-    /// SE‚Ì‰¹—ÊƒŒƒxƒ‹i0-4’iŠKj‚ğİ’è‚µ‚Ü‚·B
+    /// SEï¿½Ì‰ï¿½ï¿½Êƒï¿½ï¿½xï¿½ï¿½ï¿½i0-4ï¿½iï¿½Kï¿½jï¿½ï¿½İ’è‚µï¿½Ü‚ï¿½ï¿½B
     /// </summary>
     public void SetSeVolume(int level)
     {
-        SeVolumeLevel = Mathf.Clamp(level, 0, 4); // 0-4‚Ì”ÍˆÍ‚É•â³
+        SeVolumeLevel = Mathf.Clamp(level, 0, 4); // 0-4ï¿½Ì”ÍˆÍ‚É•â³
         seSource.volume = SeVolumeLevel / 4.0f;
         SaveVolumeSettings();
     }
 
     private void SaveVolumeSettings()
     {
-        // GameSettingsƒNƒ‰ƒX‚É•Û‘¶ˆ—‚ğˆË—Š‚·‚é
+        // GameSettingsï¿½Nï¿½ï¿½ï¿½Xï¿½É•Û‘ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë—ï¿½ï¿½ï¿½ï¿½ï¿½
         // GameSettings.SaveVolume(BgmVolumeLevel, SeVolumeLevel);
     }
 
     private void LoadVolumeSettings()
     {
-        // GameSettingsƒNƒ‰ƒX‚©‚ç“Ç‚İ‚İˆ—‚ğˆË—Š‚·‚é
+        // GameSettingsï¿½Nï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½Ç‚İï¿½ï¿½İï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë—ï¿½ï¿½ï¿½ï¿½ï¿½
         // var (bgmLevel, seLevel) = GameSettings.LoadVolume();
         // SetBgmVolume(bgmLevel);
         // SetSeVolume(seLevel);
 
-        // GameSettings‚ª–¢À‘•‚Ìê‡‚ÍAƒfƒtƒHƒ‹ƒg’l‚ğİ’è
+        // GameSettingsï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìê‡ï¿½ÍAï¿½fï¿½tï¿½Hï¿½ï¿½ï¿½gï¿½lï¿½ï¿½İ’ï¿½
         SetBgmVolume(1);
         SetSeVolume(4);
     }

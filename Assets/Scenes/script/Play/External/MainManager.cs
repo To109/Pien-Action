@@ -4,54 +4,54 @@ using UnityEngine.SceneManagement;
 
 public class MainManager : MonoBehaviour
 {
-    // ƒVƒ“ƒOƒ‹ƒgƒ“ƒCƒ“ƒXƒ^ƒ“ƒXi‚Ç‚±‚©‚ç‚Å‚àƒAƒNƒZƒX‰Â”\j
+    // ï¿½Vï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½Xï¿½^ï¿½ï¿½ï¿½Xï¿½iï¿½Ç‚ï¿½ï¿½ï¿½ï¿½ï¿½Å‚ï¿½ï¿½Aï¿½Nï¿½Zï¿½Xï¿½Â”\ï¿½j
     public static MainManager Instance { get; private set; }
 
-    // ƒQ[ƒ€ƒI[ƒo[‚É•\¦‚·‚éUI
-    [SerializeField, Header("ƒQ[ƒ€ƒI[ƒo[UI")]
+    // ï¿½Qï¿½[ï¿½ï¿½ï¿½Iï¿½[ï¿½oï¿½[ï¿½ï¿½ï¿½É•\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½UI
+    [SerializeField, Header("ï¿½Qï¿½[ï¿½ï¿½ï¿½Iï¿½[ï¿½oï¿½[UI")]
     private GameObject _gameOverUI;
-    // ƒQ[ƒ€ƒNƒŠƒA‚É•\¦‚·‚éUI
-    [SerializeField, Header("ƒQ[ƒ€ƒNƒŠƒAUI")]
+    // ï¿½Qï¿½[ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½É•\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½UI
+    [SerializeField, Header("ï¿½Qï¿½[ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½AUI")]
     private GameObject _gameClearUI;
 
-    private GameObject _player;@// ƒvƒŒƒCƒ„[ƒIƒuƒWƒFƒNƒg‚ÌQÆ
-    private bool _bShowUI;  // ƒQ[ƒ€ƒI[ƒo[‚ÆƒNƒŠƒA‚Ì”»’è‚ÌQÆ
+    private GameObject _player; // ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½ÌQï¿½ï¿½
+    private bool _bShowUI;  // ï¿½Qï¿½[ï¿½ï¿½ï¿½Iï¿½[ï¿½oï¿½[ï¿½ÆƒNï¿½ï¿½ï¿½Aï¿½Ì”ï¿½ï¿½ï¿½ÌQï¿½ï¿½
 
-    // ƒIƒuƒWƒFƒNƒg¶¬‚É1‰ñŒÄ‚Î‚ê‚é
+    // ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½1ï¿½ï¿½Ä‚Î‚ï¿½ï¿½
     private void Awake()
     {
-        // ƒVƒ“ƒOƒ‹ƒgƒ“‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ª–¢İ’è‚È‚ç©g‚ğ“o˜^
+        // ï¿½Vï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ÌƒCï¿½ï¿½ï¿½Xï¿½^ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½İ’ï¿½È‚ç©ï¿½gï¿½ï¿½oï¿½^
         if (Instance == null)
         {
             Instance = this;
         }
         else
         {
-            // ‚·‚Å‚É•Ê‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ª‘¶İ‚·‚éê‡‚Í©g‚ğ”jŠüid•¡–h~j
+            // ï¿½ï¿½ï¿½Å‚É•Ê‚ÌƒCï¿½ï¿½ï¿½Xï¿½^ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½İ‚ï¿½ï¿½ï¿½ê‡ï¿½Íï¿½ï¿½gï¿½ï¿½jï¿½ï¿½ï¿½iï¿½dï¿½ï¿½ï¿½hï¿½~ï¿½j
             Destroy(gameObject);
         }
     }
 
     void Start()
     {
-        // ƒV[ƒ““à‚©‚çPlayer‚ğ’T‚µ‚ÄQÆ‚ğ•Û
+        // ï¿½Vï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Playerï¿½ï¿½Tï¿½ï¿½ï¿½ÄQï¿½Æ‚ï¿½Ûï¿½
         _player = FindObjectOfType<Player>().gameObject;
-        _bShowUI = false; // UI‚Í‚Ü‚¾•\¦‚µ‚Ä‚¢‚È‚¢
-        //FindObjectOfType<Fade>().FadeStart(_MainStart); // ƒtƒF[ƒh‰‰o‚ªŠ®—¹‚µ‚½‚çƒQ[ƒ€ŠJnˆ—‚ğÀs
-        //_player.GetComponent<Player>().enabled = false; // ƒQ[ƒ€ŠJn‘O‚ÍƒvƒŒƒCƒ„[‘€ì‚ğ–³Œø‰»
-        // “G‚ÌƒXƒ|[ƒ“‚à–³Œø‰»
+        _bShowUI = false; // UIï¿½Í‚Ü‚ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½È‚ï¿½
+        //FindObjectOfType<Fade>().FadeStart(_MainStart); // ï¿½tï¿½Fï¿½[ï¿½hï¿½ï¿½ï¿½oï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Qï¿½[ï¿½ï¿½ï¿½Jï¿½nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½s
+        //_player.GetComponent<Player>().enabled = false; // ï¿½Qï¿½[ï¿½ï¿½ï¿½Jï¿½nï¿½Oï¿½Íƒvï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ğ–³Œï¿½ï¿½ï¿½
+        // ï¿½Gï¿½ÌƒXï¿½|ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         //foreach (EnemySpawner enemySpawner in FindObjectsOfType<EnemySpawner>())
         //{
         //    enemySpawner.enabled = false;
         //}
     }
 
-        // ƒtƒF[ƒhI—¹Œã‚ÉŒÄ‚Ño‚³‚ê‚éƒQ[ƒ€ŠJnˆ—
+        // ï¿½tï¿½Fï¿½[ï¿½hï¿½Iï¿½ï¿½ï¿½ï¿½ÉŒÄ‚Ñoï¿½ï¿½ï¿½ï¿½ï¿½Qï¿½[ï¿½ï¿½ï¿½Jï¿½nï¿½ï¿½ï¿½ï¿½
         //private void _MainStart()
         //{
-        //    // ƒvƒŒƒCƒ„[‚Ì•\¦‚ğ—LŒø‚É‚µA‘€ì‰Â”\‚É‚·‚é
+        //    // ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½Ì•\ï¿½ï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½É‚ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½Â”\ï¿½É‚ï¿½ï¿½ï¿½
         //    _player.GetComponent<Renderer>().enabled = true;
-        //    // “G‚ÌƒXƒ|[ƒ“‚ğ—LŒø‰»
+        //    // ï¿½Gï¿½ÌƒXï¿½|ï¿½[ï¿½ï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½ï¿½
         //    foreach (EnemySpawner enemySpawner in FindObjectsOfType<EnemySpawner>())
         //    {
         //        enemySpawner.enabled = true;
@@ -60,40 +60,50 @@ public class MainManager : MonoBehaviour
 
     void Update()
     {
-        _ShowGameOverUI();@// ƒvƒŒƒCƒ„[‚ªÁ‚¦‚½‚çƒQ[ƒ€ƒI[ƒo[UI•\¦
+        _ShowGameOverUI(); // ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Qï¿½[ï¿½ï¿½ï¿½Iï¿½[ï¿½oï¿½[UIï¿½\ï¿½ï¿½
         // _ShowGameClearUI();
     }
 
-    // ƒvƒŒƒCƒ„[‚ªÁ‚¦‚½‚çƒQ[ƒ€ƒI[ƒo[UI‚ğ•\¦‚·‚éˆ—
+    // ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Qï¿½[ï¿½ï¿½ï¿½Iï¿½[ï¿½oï¿½[UIï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½éˆï¿½ï¿½
     private void _ShowGameOverUI()
     {
-        // ƒvƒŒƒCƒ„[‚ª‘¶İ‚µ‚Ä‚¢‚éê‡‚Í‰½‚à‚µ‚È‚¢
+        // ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½İ‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ê‡ï¿½Í‰ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½
         if (_player != null && _player)
         {
             return;
         }
 
-        // ƒvƒŒƒCƒ„[‚ª‘¶İ‚µ‚Ä‚¢‚È‚¢ê‡‚ÍƒQ[ƒ€ƒI[ƒo[UI‚ğ•\¦
+        SoundManager.Instance.PlayBgm(BgmType.GameOver);
+        
+        // ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½İ‚ï¿½ï¿½Ä‚ï¿½ï¿½È‚ï¿½ï¿½ê‡ï¿½ÍƒQï¿½[ï¿½ï¿½ï¿½Iï¿½[ï¿½oï¿½[UIï¿½ï¿½\ï¿½ï¿½
         _gameOverUI.SetActive(true);
         _bShowUI = true;
     }
 
-    // ŠO•”‚©‚çŒÄ‚Ño‚µ‚ÄƒQ[ƒ€ƒNƒŠƒAUI‚ğ•\¦‚·‚éŠÖ”
+    // ï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚Ñoï¿½ï¿½ï¿½ÄƒQï¿½[ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½AUIï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öï¿½
     public void ShowGameClearUI()
     {
         _gameClearUI.SetActive(true);
         _bShowUI = true;
     }
 
-    // ‰Ÿ‚³‚ê‚½ƒ{ƒ^ƒ“‚Ìî•ñ‚ğæ“¾
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ê‚½ï¿½{ï¿½^ï¿½ï¿½ï¿½Ìï¿½ï¿½ï¿½ï¿½æ“¾
     public void OnRestart(InputAction.CallbackContext context)
     {
-        // ƒQ[ƒ€ƒI[ƒo[‚âƒNƒŠƒAo‚È‚¯‚ê‚Î‰½‚à‚µ‚È‚¢
+        // ï¿½Qï¿½[ï¿½ï¿½ï¿½Iï¿½[ï¿½oï¿½[ï¿½ï¿½Nï¿½ï¿½ï¿½Aï¿½oï¿½È‚ï¿½ï¿½ï¿½Î‰ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½
         if (!_bShowUI || !context.performed)
         {
             return;
         }
-        // Œ»İ‚ÌƒV[ƒ“‚ÉÄ“Ç‚İ‚İ‚ğ‚·‚é
+        // ï¿½ï¿½ï¿½İ‚ÌƒVï¿½[ï¿½ï¿½ï¿½ÉÄ“Ç‚İï¿½ï¿½İ‚ï¿½ï¿½ï¿½ï¿½ï¿½
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-}
+/// <summary>
+    /// UIãƒœã‚¿ãƒ³ã‹ã‚‰å‘¼ã³å‡ºã™ãŸã‚ã®ãƒªã‚¹ã‚¿ãƒ¼ãƒˆå‡¦ç†
+    /// </summary>
+    public void RestartScene()
+    {
+        // ç¾åœ¨ã®ã‚·ãƒ¼ãƒ³ã‚’å†èª­ã¿è¾¼ã¿ã™ã‚‹
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+} // â† ã“ã®æ‹¬å¼§ã®å‰ã«è¿½è¨˜
